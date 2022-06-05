@@ -1,0 +1,10 @@
+1. Rest APIs
+The person and location services expose rest APIs to enable communication with the outside world. Apart from the frontend application, we do not have control over what message passing techniques the future clients of these services might be comfortable working with. And since rest APIs are a lot more common, with a lot of people having experience in it, they are the preferred message passing techniques for these two services.
+
+
+2. gRPC
+The person microservice communicates with the connection service using gRPC. The connection service is an internal service and we have control over what message passing technique to use for it. Since gRPC is faster than REST, it makes sense to use this internally for message passing between person and connection microservices.
+
+
+3. Kafka
+Kafka is capable of handling high volumes of data and can transmit data from the producer to consumers with very low latency. The udaconnect application is expected to be processing a large amount of location data as events, and using kafka in the location service is preferred. 
